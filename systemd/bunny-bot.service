@@ -1,0 +1,16 @@
+[Unit]
+Description=Vecchia Bunny - bibliotecaria tortle per manuali D&D
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kratos
+WorkingDirectory=/home/kratos/bunny-bot
+ExecStart=/home/kratos/bunny-bot/venv/bin/python -m bunny_bot.main
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/home/kratos/bunny-bot/.env
+
+[Install]
+WantedBy=multi-user.target
